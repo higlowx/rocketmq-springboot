@@ -1,0 +1,22 @@
+{
+  "properties": [
+    {
+      "name": "rocket.namesrvAddr",
+      "type": "java.lang.String",
+      "description": "NamesrvAddr of remote RocketMQ server.",
+      "sourceType": "com.xixi.rocketmq.springboot.starter.RocketMqUnifiedProperties"
+    },
+    {
+      "name": "rocket.accessKey",
+      "type": "java.lang.String",
+      "description": "AccessKey for ACL if you need.",
+      "sourceType": "com.xixi.rocketmq.springboot.starter.RocketMqUnifiedProperties"
+    },
+    {
+      "name": "rocket.accessSecret",
+      "type": "java.lang.String",
+      "description": "AccessSecret for ACL if you need.",
+      "sourceType": "com.xixi.rocketmq.springboot.starter.RocketMqUnifiedProperties"
+    }
+  ]
+}
