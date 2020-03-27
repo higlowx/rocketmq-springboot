@@ -76,9 +76,9 @@ public class ConsumerFactoryBean implements FactoryBean<Object>, InitializingBea
     /**
      * loading unified config
      *
-     * @throws ClassNotFoundException
+     * @throws BeanNotFoundException
      */
-    private void loadingUnifiedConfig() throws ClassNotFoundException {
+    private void loadingUnifiedConfig() throws BeanNotFoundException {
         RocketMqUnifiedProperties properties = (RocketMqUnifiedProperties) getBean(RocketMqConst.UNIFIED_CONFIG_BEANNAME);
         Assert.hasText(properties.getNamesrvAddr(), "namesrvAddr must be set in config files for this consumer");
         namesrvAddr = properties.getNamesrvAddr();
@@ -91,7 +91,7 @@ public class ConsumerFactoryBean implements FactoryBean<Object>, InitializingBea
      *
      * @param listenerName bean name of defined listener
      */
-    private void loadingMessageListener(String listenerName) throws ClassNotFoundException {
+    private void loadingMessageListener(String listenerName) throws BeanNotFoundException {
         messageListener = (MessageListener) getBean(listenerName);
     }
 
@@ -101,10 +101,10 @@ public class ConsumerFactoryBean implements FactoryBean<Object>, InitializingBea
      * @param beanName bean name
      * @return specified bean
      */
-    private Object getBean(String beanName) throws ClassNotFoundException {
+    private Object getBean(String beanName) throws BeanNotFoundException {
         Object bean = context.getBean(beanName);
         if (ObjectUtils.isEmpty(bean)) {
-            throw new ClassNotFoundException("class instance not found by bean named " + beanName);
+            throw new BeanNotFoundException("class instance not found by bean named " + beanName);
         }
         return bean;
     }

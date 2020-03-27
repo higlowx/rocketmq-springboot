@@ -78,9 +78,9 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
     /**
      * loading unified config
      *
-     * @throws ClassNotFoundException
+     * @throws BeanNotFoundException
      */
-    private void loadingUnifiedConfig() throws ClassNotFoundException {
+    private void loadingUnifiedConfig() throws BeanNotFoundException {
         RocketMqUnifiedProperties properties = (RocketMqUnifiedProperties) getBean(RocketMqConst.UNIFIED_CONFIG_BEANNAME);
         Assert.hasText(properties.getNamesrvAddr(), "namesrvAddr must be set in config files  for this producer");
         namesrvAddr = properties.getNamesrvAddr();
@@ -92,9 +92,9 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
      * loading executor for local transaction executing and checking
      *
      * @param executorName bean name of defined executor
-     * @throws ClassNotFoundException
+     * @throws BeanNotFoundException
      */
-    private void loadingExecutorService(String executorName) throws ClassNotFoundException {
+    private void loadingExecutorService(String executorName) throws BeanNotFoundException {
 
         //use default executor
         if (StringUtils.isEmpty(executorName)) {
@@ -109,9 +109,9 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
      * loading local transaction listener
      *
      * @param listenerName bean name of defined listener
-     * @throws ClassNotFoundException
+     * @throws BeanNotFoundException
      */
-    private void loadingTransactionListener(String listenerName) throws ClassNotFoundException {
+    private void loadingTransactionListener(String listenerName) throws BeanNotFoundException {
         transactionListener = (TransactionListener) getBean(listenerName);
     }
 
@@ -120,12 +120,12 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
      *
      * @param beanName bean name
      * @return specified bean
-     * @throws ClassNotFoundException
+     * @throws BeanNotFoundException
      */
-    private Object getBean(String beanName) throws ClassNotFoundException {
+    private Object getBean(String beanName) throws BeanNotFoundException {
         Object bean = context.getBean(beanName);
         if (ObjectUtils.isEmpty(bean)) {
-            throw new ClassNotFoundException("class instance not found by bean named " + beanName);
+            throw new BeanNotFoundException("class instance not found by bean named " + beanName);
         }
         return bean;
     }
