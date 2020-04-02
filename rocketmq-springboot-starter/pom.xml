@@ -103,4 +103,11 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/CHN-BinaryLi/rocketmq-springboot-starter</url>
+        </repository>
+    </distributionManagement>
+
 </project>
