@@ -23,4 +23,5 @@ rocketmq.namesrvAddr={YOUR NAMESRV ADDR}
 rocketmq.accessKey={YOUR ACCESSKEY}
 rocketmq.accessSecret={YOUR ACCESS SECRET}
 ```
-## 
+按需要在启动类中开启生产实例注册与消费者实例注册，对应的注解分别为<font color=red>@EnableRocketMqProducers</font>，<font color=red>@EnableRocketMqConsumers</font>
+### 
