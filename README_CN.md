@@ -7,7 +7,6 @@
 
 ## 快速开始
 
-### 配置
 引入Maven依赖（现阶段还不支持其他方式的引入）。
 ```mxml
 <dependency>
@@ -16,7 +15,7 @@
     <version>{VERSION}</version>
 </dependency>
 ```
-配置文件，以下仅示例springboot原生的properties配置，yaml等其他方式请各位开发者自行类比。
+编辑配置文件，以下仅示例springboot原生的properties配置，yaml等其他方式请各位开发者自行类比。
 注意：此处使用单个应用仅仅接入单个rocketmq集群的方式。
 ```properties
 rocketmq.namesrvAddr={YOUR NAMESRV ADDR}
