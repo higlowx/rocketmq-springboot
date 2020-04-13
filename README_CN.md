@@ -63,7 +63,7 @@ public interface Producer1 extends BaseRocketMqProducer {
 
 
 
-##需要优化的点
+## 需要优化的点
 
 * @Autowired引入能力
 * 生产者与消费者接口类注解参数中，涉及类实例引用的参数优化为强关联
