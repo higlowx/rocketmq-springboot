@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <artifactId>rocketmq-springboot-starter-test</artifactId>
-    <version>1.0</version>
+    <version>1.1.0</version>
     <name>rocketmq-springboot-starter-test</name>
     <packaging>jar</packaging>
 
@@ -92,7 +92,7 @@
         <dependency>
             <groupId>com.dylanlee</groupId>
             <artifactId>rocketmq-springboot-starter</artifactId>
-            <version>1.0</version>
+            <version>1.1.0</version>
         </dependency>
     </dependencies>
 
