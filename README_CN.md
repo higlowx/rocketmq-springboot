@@ -10,7 +10,7 @@
 引入Maven依赖（现阶段还不支持其他方式的引入）。
 ```mxml
 <dependency>
-    <groupId>com.xixi</groupId>
+    <groupId>com.dylanlee</groupId>
     <artifactId>rocketmq-springboot-starter</artifactId>
     <version>{VERSION}</version>
 </dependency>

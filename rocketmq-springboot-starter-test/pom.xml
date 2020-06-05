@@ -15,8 +15,8 @@
 
     <developers>
         <developer>
-            <id>lixihao</id>
-            <name>lixihao</name>
+            <id>dylanlee</id>
+            <name>Dylan.Lee</name>
             <email>lixihaofree@163.com</email>
         </developer>
     </developers>
@@ -90,7 +90,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.xixi</groupId>
+            <groupId>com.dylanlee</groupId>
             <artifactId>rocketmq-springboot-starter</artifactId>
             <version>1.0</version>
         </dependency>
