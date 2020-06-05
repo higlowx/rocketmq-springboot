@@ -34,7 +34,7 @@ public class TransactionProducer {
         });
         producer.setSendMsgTimeout(10000);
         producer.setSendMessageWithVIPChannel(false);
-        producer.setNamesrvAddr("39.96.15.143:9876");
+        producer.setNamesrvAddr("");
         producer.setExecutorService(executorService);
         producer.setTransactionListener(transactionListener);
         producer.start();
