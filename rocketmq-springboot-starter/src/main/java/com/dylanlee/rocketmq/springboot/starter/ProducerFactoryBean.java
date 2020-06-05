@@ -30,7 +30,9 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
     private boolean txMessage;
     private String accessKey;
     private String accessSecret;
+    //TODO
     private String executor;
+    //TODO
     private String listener;
     private ExecutorService executorService;
     private TransactionListener transactionListener;

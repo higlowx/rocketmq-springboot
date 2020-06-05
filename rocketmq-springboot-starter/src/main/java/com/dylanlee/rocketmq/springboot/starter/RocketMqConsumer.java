@@ -9,8 +9,8 @@ import java.lang.annotation.*;
 
 /**
  * @author Dylan.Lee
- * @since 1.0
  * @date 2019/11/21
+ * @since 1.0
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
@@ -25,7 +25,7 @@ public @interface RocketMqConsumer {
 
     String[] tag() default {"*"};
 
-    String listener() default "";
+    Class<?> listener();
 
     boolean vipChannelEnabled() default false;
 

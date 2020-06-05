@@ -6,8 +6,8 @@ import java.lang.annotation.*;
 
 /**
  * @author Dylan.Lee
- * @since 1.0
  * @date 2019/11/7
+ * @since 1.0
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
@@ -24,9 +24,9 @@ public @interface RocketMqProducer {
 
     boolean txMessage() default false;
 
-    String executor() default "";
+    Class<?> executor();
 
-    String listener() default "";
+    Class<?> listener();
 
     boolean primary() default true;
 
