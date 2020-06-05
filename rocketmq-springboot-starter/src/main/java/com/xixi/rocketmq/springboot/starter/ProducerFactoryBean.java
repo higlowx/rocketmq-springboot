@@ -15,8 +15,8 @@ import java.lang.reflect.Proxy;
 import java.util.concurrent.ExecutorService;
 
 /**
- * @author Chris.Li
- * @desc
+ * @author Dylan.Lee
+ * @since 1.0
  * @date 2019/11/11
  */
 public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBean, ApplicationContextAware {

@@ -3,8 +3,8 @@ package com.xixi.rocketmq.springboot.starter;
 import java.util.concurrent.*;
 
 /**
- * @author Chris.Li
- * @desc
+ * @author Dylan.Lee
+ * @since 1.0
  * @date 2019/11/26
  */
 

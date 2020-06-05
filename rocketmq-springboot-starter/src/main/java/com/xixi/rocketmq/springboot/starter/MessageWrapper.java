@@ -6,8 +6,8 @@ import org.apache.rocketmq.common.message.MessageAccessor;
 import java.util.Date;
 
 /**
- * @author Chris.Li
- * @desc
+ * @author Dylan.Lee
+ * @since 1.0
  * @date 2020/1/9
  */
 

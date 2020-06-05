@@ -8,8 +8,8 @@ import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 import java.lang.annotation.*;
 
 /**
- * @author Chris.Li
- * @desc
+ * @author Dylan.Lee
+ * @since 1.0
  * @date 2019/11/21
  */
 @Target(ElementType.TYPE)

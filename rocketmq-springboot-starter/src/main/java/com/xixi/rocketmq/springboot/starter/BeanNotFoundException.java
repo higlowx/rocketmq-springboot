@@ -3,8 +3,8 @@ package com.xixi.rocketmq.springboot.starter;
 import org.springframework.beans.BeansException;
 
 /**
- * @author Chris.Li
- * @desc
+ * @author Dylan.Lee
+ * @since 1.0
  * @date 2020/3/27
  */
 

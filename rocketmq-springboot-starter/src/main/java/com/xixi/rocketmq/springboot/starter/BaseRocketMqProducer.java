@@ -11,8 +11,8 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author Chris.Li
- * @desc
+ * @author Dylan.Lee
+ * @since 1.0
  * @date 2019/11/11
  */
 public interface BaseRocketMqProducer {

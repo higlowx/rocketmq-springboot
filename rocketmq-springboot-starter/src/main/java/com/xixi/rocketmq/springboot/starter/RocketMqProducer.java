@@ -5,8 +5,8 @@ import org.apache.rocketmq.client.AccessChannel;
 import java.lang.annotation.*;
 
 /**
- * @author Chris.Li
- * @desc
+ * @author Dylan.Lee
+ * @since 1.0
  * @date 2019/11/7
  */
 @Target(ElementType.TYPE)

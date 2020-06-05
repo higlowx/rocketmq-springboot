@@ -18,8 +18,8 @@ import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 
 /**
- * @author Chris.Li
- * @desc
+ * @author Dylan.Lee
+ * @since 1.0
  * @date 2019/11/14
  */
 public class Producer implements InvocationHandler {
