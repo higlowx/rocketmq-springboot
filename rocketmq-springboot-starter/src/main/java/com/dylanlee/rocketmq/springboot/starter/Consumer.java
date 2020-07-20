@@ -23,8 +23,8 @@ import java.util.Objects;
 
 /**
  * @author Dylan.Lee
- * @since 1.0
  * @date 2019/11/25
+ * @since 1.0
  */
 
 public class Consumer implements InvocationHandler {
@@ -116,6 +116,7 @@ public class Consumer implements InvocationHandler {
             pushConsumer.subscribe(topic, tag);
             pushConsumer.setMessageListener(msgListener);
             pushConsumer.setAccessChannel(accessChannel);
+            pushConsumer.setConsumeMessageBatchMaxSize(1);
 
             this.pushConsumer = pushConsumer;
             this.pushConsumer.start();
