@@ -24,9 +24,9 @@ public @interface RocketMqProducer {
 
     boolean txMessage() default false;
 
-    Class<?> executor();
+    Class<?> executor() default void.class;
 
-    Class<?> listener();
+    Class<?> listener() default void.class;
 
     boolean primary() default true;
 

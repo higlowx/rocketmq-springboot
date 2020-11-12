@@ -46,6 +46,7 @@ class RocketMqConst {
     static final String BASE_PRODUCER_CLASSNAME = "com.dylanlee.rocketmq.springboot.starter.BaseRocketMqProducer";
     static final String BASE_CONSUMER_CLASSNAME = "com.dylanlee.rocketmq.springboot.starter.BaseRocketMqConsumer";
 
+    @Deprecated
     static final String UNIFIED_CONFIG_BEANNAME = "rocketMqUnifiedProperties";
     static final String UNIFIED_CONFIG_FILE_PREFIX = "rocketmq";
 

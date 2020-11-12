@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @since 1.0
  * @date 2020/1/8
  */
-@Component(RocketMqConst.UNIFIED_CONFIG_BEANNAME)
+@Component
 @ConfigurationProperties(prefix = RocketMqConst.UNIFIED_CONFIG_FILE_PREFIX, ignoreUnknownFields = true)
 public class RocketMqUnifiedProperties {
 

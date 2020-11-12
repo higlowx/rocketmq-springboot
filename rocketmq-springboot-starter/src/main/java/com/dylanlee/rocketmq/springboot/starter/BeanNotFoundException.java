@@ -7,7 +7,7 @@ import org.springframework.beans.BeansException;
  * @since 1.0
  * @date 2020/3/27
  */
-
+@Deprecated
 public class BeanNotFoundException extends BeansException {
 
 

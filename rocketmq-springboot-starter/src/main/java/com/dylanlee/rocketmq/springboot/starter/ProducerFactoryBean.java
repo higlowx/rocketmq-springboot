@@ -5,21 +5,21 @@ import org.apache.rocketmq.client.producer.TransactionListener;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Proxy;
 import java.util.concurrent.ExecutorService;
 
 /**
  * @author Dylan.Lee
- * @since 1.0
  * @date 2019/11/11
+ * @since 1.0
  */
-public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBean, ApplicationContextAware {
+public class ProducerFactoryBean<T> implements FactoryBean<T>, InitializingBean, ApplicationContextAware {
 
     private ApplicationContext context;
     private Class<?> type;
@@ -30,16 +30,16 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
     private boolean txMessage;
     private String accessKey;
     private String accessSecret;
-    //TODO
-    private String executor;
-    //TODO
-    private String listener;
+    private Class<?> executor = void.class;
+    private Class<?> listener = void.class;
     private ExecutorService executorService;
     private TransactionListener transactionListener;
     private AccessChannel accessChannel;
 
+
     @Override
-    public Object getObject() throws Exception {
+    @SuppressWarnings("unchecked")
+    public T getObject() throws Exception {
 
         loadingUnifiedConfig();
 
@@ -47,16 +47,17 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
                 .basic(this);
 
         if (!txMessage) {
-            return Proxy.newProxyInstance(type.getClassLoader(),
+            return (T) Proxy.newProxyInstance(type.getClassLoader(),
                     new Class[]{type}, producer.build());
         }
 
         loadingExecutorService(executor);
         loadingTransactionListener(listener);
 
-        return Proxy.newProxyInstance(type.getClassLoader(), new Class[]{type},
+        return (T) Proxy.newProxyInstance(type.getClassLoader(), new Class[]{type},
                 producer.executor(executorService).transactionListener(transactionListener).build());
     }
+
 
     @Override
     public Class<?> getObjectType() {
@@ -68,7 +69,7 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
         Assert.hasText(group, "group must be set");
         Assert.notNull(type, "type must be set");
         Assert.notNull(accessChannel, "accessChannel must be set");
-        Assert.isTrue(!txMessage || StringUtils.hasText(listener),
+        Assert.isTrue(!txMessage || void.class != listener,
                 "transaction listener must be set when txMessage set");
     }
 
@@ -80,10 +81,10 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
     /**
      * loading unified config
      *
-     * @throws BeanNotFoundException
+     * @throws NoSuchBeanDefinitionException
      */
-    private void loadingUnifiedConfig() throws BeanNotFoundException {
-        RocketMqUnifiedProperties properties = (RocketMqUnifiedProperties) getBean(RocketMqConst.UNIFIED_CONFIG_BEANNAME);
+    private void loadingUnifiedConfig() throws NoSuchBeanDefinitionException {
+        RocketMqUnifiedProperties properties = getBean(RocketMqUnifiedProperties.class);
         Assert.hasText(properties.getNamesrvAddr(), "namesrvAddr must be set in config files  for this producer");
         namesrvAddr = properties.getNamesrvAddr();
         accessKey = properties.getAccessKey();
@@ -93,28 +94,26 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
     /**
      * loading executor for local transaction executing and checking
      *
-     * @param executorName bean name of defined executor
-     * @throws BeanNotFoundException
+     * @throws NoSuchBeanDefinitionException
      */
-    private void loadingExecutorService(String executorName) throws BeanNotFoundException {
+    private void loadingExecutorService(Class<?> executorType) throws NoSuchBeanDefinitionException {
 
         //use default executor
-        if (StringUtils.isEmpty(executorName)) {
+        if (void.class == executorType) {
             executorService = RocketMqExecutorService.INSTANCE.getInstance();
             return;
         }
         //use defined executor
-        executorService = (ExecutorService) getBean(executorName);
+        executorService = (ExecutorService) getBean(executorType);
     }
 
     /**
      * loading local transaction listener
      *
-     * @param listenerName bean name of defined listener
-     * @throws BeanNotFoundException
+     * @throws NoSuchBeanDefinitionException
      */
-    private void loadingTransactionListener(String listenerName) throws BeanNotFoundException {
-        transactionListener = (TransactionListener) getBean(listenerName);
+    private void loadingTransactionListener(Class<?> listenerType) throws NoSuchBeanDefinitionException {
+        transactionListener = (TransactionListener) getBean(listenerType);
     }
 
     /**
@@ -122,12 +121,28 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
      *
      * @param beanName bean name
      * @return specified bean
-     * @throws BeanNotFoundException
+     * @throws NoSuchBeanDefinitionException
      */
-    private Object getBean(String beanName) throws BeanNotFoundException {
+    @Deprecated
+    private Object getBean(String beanName) throws NoSuchBeanDefinitionException {
         Object bean = context.getBean(beanName);
         if (ObjectUtils.isEmpty(bean)) {
-            throw new BeanNotFoundException("class instance not found by bean named " + beanName);
+            throw new NoSuchBeanDefinitionException("class instance not found by bean named " + beanName);
+        }
+        return bean;
+    }
+
+    /**
+     * checkout the registered bean by beanName
+     *
+     * @param classType bean type
+     * @return specified bean
+     * @throws NoSuchBeanDefinitionException
+     */
+    private <T> T getBean(Class<T> classType) throws NoSuchBeanDefinitionException {
+        T bean = context.getBean(classType);
+        if (ObjectUtils.isEmpty(bean)) {
+            throw new NoSuchBeanDefinitionException("class instance not found by bean type " + classType.getSimpleName());
         }
         return bean;
     }
@@ -176,19 +191,19 @@ public class ProducerFactoryBean implements FactoryBean<Object>, InitializingBea
         this.txMessage = txMessage;
     }
 
-    public String getExecutor() {
+    public Class<?> getExecutor() {
         return executor;
     }
 
-    public void setExecutor(String executor) {
+    public void setExecutor(Class<?> executor) {
         this.executor = executor;
     }
 
-    public String getListener() {
+    public Class<?> getListener() {
         return listener;
     }
 
-    public void setListener(String listener) {
+    public void setListener(Class<?> listener) {
         this.listener = listener;
     }
 

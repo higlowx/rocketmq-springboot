@@ -2,6 +2,7 @@ package com.dylanlee.rocketmq.springboot.starter;
 
 import org.apache.rocketmq.client.AccessChannel;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -74,8 +75,8 @@ public class RocketMqProducersRegistrar extends RocketMqClientsSupport {
         Object sendMsgTimeout = attributes.get(RocketMqConst.ANNOTATION_PROPERTY_SEND_MSG_TIMEOUT);
         Object vipChannelEnabled = attributes.get(RocketMqConst.ANNOTATION_PROPERTY_VIP_VHANNEL_ENABLED);
         Object isTxMessage = attributes.get(RocketMqConst.ANNOTATION_PROPERTY_IS_TX_MESSAGE);
-        Object executor = attributes.get(RocketMqConst.ANNOTATION_PROPERTY_EXECUTOR);
-        Object listener = attributes.get(RocketMqConst.ANNOTATION_PROPERTY_LISTENER);
+        Class<?> executor = (Class<?>) attributes.get(RocketMqConst.ANNOTATION_PROPERTY_EXECUTOR);
+        Class<?> listener = (Class<?>) attributes.get(RocketMqConst.ANNOTATION_PROPERTY_LISTENER);
         AccessChannel accessChannel = (AccessChannel) attributes.get(RocketMqConst.ANNOTATION_PROPERTY_ACCESS_CHANNEL);
 
         definition.addPropertyValue(RocketMqConst.PROPERTY_GROUP, group);
