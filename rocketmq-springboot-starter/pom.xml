@@ -17,8 +17,8 @@
 
     <developers>
         <developer>
-            <id>github.higlowx</id>
-            <name>Dylan.Li</name>
+            <id>lixihao</id>
+            <name>lixihao</name>
             <email>lixihaofree@163.com</email>
         </developer>
     </developers>
@@ -106,7 +106,7 @@
     <distributionManagement>
         <repository>
             <id>github</id>
-            <url>https://maven.pkg.github.com/CHN-BinaryLi/rocketmq-springboot-starter</url>
+            <url>https://maven.pkg.github.com/higlowx/rocketmq-springboot-starter</url>
         </repository>
     </distributionManagement>
 
