@@ -8,7 +8,7 @@
         <version>2.0.4.RELEASE</version>
         <relativePath/>
     </parent>
-    <groupId>com.xixi</groupId>
+    <groupId>com.higlowx</groupId>
     <artifactId>rocketmq-springboot-starter</artifactId>
     <version>1.0</version>
     <name>rocketmq-springboot-starter</name>

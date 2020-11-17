@@ -10,7 +10,7 @@
 引入Maven依赖（现阶段还不支持其他方式的引入）。
 ```mxml
 <dependency>
-    <groupId>com.xixi</groupId>
+    <groupId>com.higlowx</groupId>
     <artifactId>rocketmq-springboot-starter</artifactId>
     <version>{VERSION}</version>
 </dependency>
@@ -71,5 +71,5 @@ public interface Producer1 extends BaseRocketMqProducer {
 
 欢迎志同道合的Coder提交建设性issue！目前本工程的详细使用文档正在进一步推进中，敬请期待！另外欢迎有兴趣的同学直接添加作者微信进行沟通！
 
-![作者微信](pic/author_wechat_qrcode.png)
+![作者微信](imgs/author_wechat_qrcode.png)
 

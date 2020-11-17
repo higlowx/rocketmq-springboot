@@ -90,7 +90,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.xixi</groupId>
+            <groupId>com.higlowx</groupId>
             <artifactId>rocketmq-springboot-starter</artifactId>
             <version>1.0</version>
         </dependency>
