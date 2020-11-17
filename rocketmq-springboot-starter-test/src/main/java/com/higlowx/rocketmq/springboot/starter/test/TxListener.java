@@ -7,7 +7,7 @@ import org.apache.rocketmq.common.message.MessageExt;
 import org.springframework.stereotype.Component;
 
 /**
- * @author Chris.Li
+ * @author Dylan.Li
  * @desc
  * @date 2019/11/26
  */

@@ -5,7 +5,7 @@ import org.apache.rocketmq.client.AccessChannel;
 import java.lang.annotation.*;
 
 /**
- * @author Dylan.Lee
+ * @author Dylan.Li
  * @date 2019/11/7
  * @since 1.0
  */

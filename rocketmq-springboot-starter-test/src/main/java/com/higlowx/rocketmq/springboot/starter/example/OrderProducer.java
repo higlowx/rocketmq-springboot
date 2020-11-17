@@ -11,7 +11,7 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 import java.util.List;
 
 /**
- * @author Chris.Li
+ * @author Dylan.Li
  * @desc
  * @date 2019/11/22
  */

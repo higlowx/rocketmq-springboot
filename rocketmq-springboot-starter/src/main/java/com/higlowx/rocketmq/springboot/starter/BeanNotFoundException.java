@@ -3,7 +3,7 @@ package com.higlowx.rocketmq.springboot.starter;
 import org.springframework.beans.BeansException;
 
 /**
- * @author Dylan.Lee
+ * @author Dylan.Li
  * @since 1.0
  * @date 2020/3/27
  */

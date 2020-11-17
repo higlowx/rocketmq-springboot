@@ -2,7 +2,7 @@ package com.higlowx.rocketmq.springboot.starter;
 
 
 /**
- * @author  Dylan.Lee
+ * @author  Dylan.Li
  * @date    2019/11/25
  * @since 1.0
 */

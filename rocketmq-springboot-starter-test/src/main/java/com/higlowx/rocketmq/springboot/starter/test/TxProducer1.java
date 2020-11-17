@@ -3,7 +3,7 @@ package com.higlowx.rocketmq.springboot.starter.test;
 import com.higlowx.rocketmq.springboot.starter.BaseRocketMqProducer;
 
 /**
- * @author Chris.Li
+ * @author Dylan.Li
  * @desc
  * @date 2019/11/26
  */

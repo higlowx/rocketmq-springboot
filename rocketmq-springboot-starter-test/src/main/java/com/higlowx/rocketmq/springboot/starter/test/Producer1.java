@@ -5,11 +5,11 @@ import com.higlowx.rocketmq.springboot.starter.RocketMqProducer;
 import org.apache.rocketmq.client.AccessChannel;
 
 /**
- * @author Chris.Li
+ * @author Dylan.Li
  * @desc
  * @date 2019/11/11
  */
-@RocketMqProducer(group = "GID-msgcenter", accessChannel = AccessChannel.CLOUD)
+@RocketMqProducer(group = "", accessChannel = AccessChannel.CLOUD)
 public interface Producer1 extends BaseRocketMqProducer {
 
 }

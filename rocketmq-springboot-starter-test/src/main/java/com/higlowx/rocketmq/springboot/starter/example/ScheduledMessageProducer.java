@@ -4,7 +4,7 @@ import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 
 /**
- * @author Chris.Li
+ * @author Dylan.Li
  * @desc
  * @date 2019/11/25
  */

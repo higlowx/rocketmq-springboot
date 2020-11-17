@@ -3,7 +3,7 @@ package com.higlowx.rocketmq.springboot.starter;
 import java.util.concurrent.*;
 
 /**
- * @author Dylan.Lee
+ * @author Dylan.Li
  * @date 2019/11/26
  * @since 1.0
  */
