@@ -16,8 +16,8 @@ import java.util.concurrent.ExecutorService;
 
 /**
  * @author Dylan.Li
- * @date 2019/11/11
  * @since 1.0
+ * @date 2019/11/11
  */
 public class ProducerFactoryBean<T> implements FactoryBean<T>, InitializingBean, ApplicationContextAware {
 

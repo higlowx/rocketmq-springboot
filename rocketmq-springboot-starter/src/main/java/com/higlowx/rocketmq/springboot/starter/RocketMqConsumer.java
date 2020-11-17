@@ -9,8 +9,8 @@ import java.lang.annotation.*;
 
 /**
  * @author Dylan.Li
- * @date 2019/11/21
  * @since 1.0
+ * @date 2019/11/21
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
